@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class PlayerUpgradeValues : MonoBehaviour
 {
+    // Singleton
+    public static PlayerUpgradeValues Instance { get { return s_instance; } }
+    private static PlayerUpgradeValues s_instance = null;
+
     // Properties
     public float MovementForceMultiplier
     {
@@ -63,4 +67,15 @@ public class PlayerUpgradeValues : MonoBehaviour
 
     [SerializeField]
     private int m_inventorySize = 10;
+
+    private void Awake()
+    {
+        if (s_instance != null && s_instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+
+        s_instance = this;
+    }
 }

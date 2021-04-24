@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance { get { return s_instance; } }
+
+    private static PlayerMovement s_instance = null;
+
     private Rigidbody2D m_rigidBody = null;
     private PlayerUpgradeValues m_upgradeValues = null;
     private Animator m_animator = null;
@@ -16,6 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        if (s_instance != null && s_instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        s_instance = this;
+
         m_rigidBody = GetComponent<Rigidbody2D>();
         m_upgradeValues = GetComponent<PlayerUpgradeValues>();
         m_animator = GetComponent<Animator>();
