@@ -894,6 +894,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5603895535543811472, guid: ea279707e021d834e8d9c28c77a15da3, type: 3}
   m_PrefabInstance: {fileID: 78675071}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &251928780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191468, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493201422193191470, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
+      propertyPath: m_Name
+      value: UpgradeStation
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e466fd6d81c9684d96b48a2c5519d56, type: 3}
 --- !u!1001 &259802068
 PrefabInstance:
   m_ObjectHideFlags: 0
