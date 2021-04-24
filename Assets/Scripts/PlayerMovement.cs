@@ -9,11 +9,22 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D m_rigidBody = null;
     private PlayerUpgradeValues m_upgradeValues = null;
+    private Animator m_animator = null;
+    private SpriteRenderer m_spriteRenderer = null;
+
+    private Vector2 m_movementVector = Vector2.zero;
 
     private void Awake()
     {
         m_rigidBody = GetComponent<Rigidbody2D>();
         m_upgradeValues = GetComponent<PlayerUpgradeValues>();
+        m_animator = GetComponent<Animator>();
+        m_spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        UpdateInput();
     }
 
     private void FixedUpdate()
@@ -21,29 +32,59 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
-    // Called on FixedUpdate
-    private void Move()
+    // Called on Update
+    private void UpdateInput()
     {
-        // Get movement vector
-        Vector2 movementVector = Vector2.zero;
+        m_movementVector = Vector2.zero;
 
         if (Input.GetKey(KeyCode.W))
         {
-            movementVector.y += 1.0f;
+            m_movementVector.y += 1.0f;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            movementVector.y -= 1.0f;
+            m_movementVector.y -= 1.0f;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            movementVector.x += 1.0f;
+            m_movementVector.x += 1.0f;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            movementVector.x -= 1.0f;
+            m_movementVector.x -= 1.0f;
         }
 
-        m_rigidBody.AddForce(movementVector * m_upgradeValues.MovementForceMultiplier);
+        UpdateAnimator(m_movementVector);
+    }
+
+    // Called on FixedUpdate
+    private void Move()
+    {
+        m_rigidBody.AddForce(m_movementVector * m_upgradeValues.MovementForceMultiplier);
+
+        m_movementVector = Vector2.zero;
+    }
+
+    // Called on Update
+    private void UpdateAnimator(Vector2 movementVector)
+    {
+        bool hasInput = movementVector != Vector2.zero;
+        bool isMoving = m_animator.GetBool("IsMoving");
+
+        // Turn animation on/off
+        if (hasInput && !isMoving)
+        {
+            m_animator.SetBool("IsMoving", true);
+        }
+        else if (!hasInput && isMoving)
+        {
+            m_animator.SetBool("IsMoving", false);
+        }
+
+        // Only update flip if moving along the X
+        if (movementVector.x != 0.0f)
+        {
+            m_spriteRenderer.flipX = movementVector.x > 0.0f;
+        }
     }
 }
