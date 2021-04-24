@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -8,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance { get { return s_instance; } }
+    public bool MovementEnabled { get; set; } = true;
 
     private static PlayerMovement s_instance = null;
 
@@ -48,21 +47,25 @@ public class PlayerMovement : MonoBehaviour
     {
         m_movementVector = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.W))
+        // Get input only if enabled
+        if (MovementEnabled)
         {
-            m_movementVector.y += 1.0f;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            m_movementVector.y -= 1.0f;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            m_movementVector.x += 1.0f;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            m_movementVector.x -= 1.0f;
+            if (Input.GetKey(KeyCode.W))
+            {
+                m_movementVector.y += 1.0f;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                m_movementVector.y -= 1.0f;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                m_movementVector.x += 1.0f;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                m_movementVector.x -= 1.0f;
+            }
         }
 
         UpdateAnimator(m_movementVector);
