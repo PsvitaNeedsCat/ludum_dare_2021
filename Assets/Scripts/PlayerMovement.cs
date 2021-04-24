@@ -7,12 +7,12 @@ using UnityEngine;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody m_rigidBody = null;
+    private Rigidbody2D m_rigidBody = null;
     private PlayerUpgradeValues m_upgradeValues = null;
 
     private void Awake()
     {
-        m_rigidBody = GetComponent<Rigidbody>();
+        m_rigidBody = GetComponent<Rigidbody2D>();
         m_upgradeValues = GetComponent<PlayerUpgradeValues>();
     }
 
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         // Get movement vector
-        Vector3 movementVector = Vector3.zero;
+        Vector2 movementVector = Vector2.zero;
 
         if (Input.GetKey(KeyCode.W))
         {
