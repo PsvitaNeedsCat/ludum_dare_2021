@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D m_rigidBody = null;
     private PlayerUpgradeValues m_upgradeValues = null;
     private Animator m_animator = null;
+    private SpriteRenderer m_spriteRenderer = null;
 
     private Vector2 m_movementVector = Vector2.zero;
 
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         m_rigidBody = GetComponent<Rigidbody2D>();
         m_upgradeValues = GetComponent<PlayerUpgradeValues>();
         m_animator = GetComponent<Animator>();
+        m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
             m_movementVector.x -= 1.0f;
         }
 
-        UpdateAnimator(m_movementVector != Vector2.zero);
+        UpdateAnimator(m_movementVector);
     }
 
     // Called on FixedUpdate
@@ -64,10 +66,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Called on Update
-    private void UpdateAnimator(bool hasInput)
+    private void UpdateAnimator(Vector2 movementVector)
     {
+        bool hasInput = movementVector != Vector2.zero;
         bool isMoving = m_animator.GetBool("IsMoving");
 
+        // Turn animation on/off
         if (hasInput && !isMoving)
         {
             m_animator.SetBool("IsMoving", true);
@@ -75,6 +79,12 @@ public class PlayerMovement : MonoBehaviour
         else if (!hasInput && isMoving)
         {
             m_animator.SetBool("IsMoving", false);
+        }
+
+        // Only update flip if moving along the X
+        if (movementVector.x != 0.0f)
+        {
+            m_spriteRenderer.flipX = movementVector.x > 0.0f;
         }
     }
 }
