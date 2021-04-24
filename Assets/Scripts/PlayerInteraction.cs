@@ -12,17 +12,19 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (targetItem == null)
             {
                 TryPickup();
-            } 
-            else
+            }            
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            if (targetItem != null)
             {
                 UpdatePickup();
             }
-            
         }
         else if (Input.GetKeyUp(KeyCode.E) && targetItem != null)
         {
