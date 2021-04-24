@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 8411328586785130894}
   - component: {fileID: 3866134275492439319}
   - component: {fileID: 8911307981032512550}
+  - component: {fileID: 2098372584}
+  - component: {fileID: 2098372585}
+  - component: {fileID: 2098372586}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -183,3 +186,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &2098372584
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973447479815979697}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!114 &2098372585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973447479815979697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbcae50b56431ce41adeb88ccaad4075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCurrency: 0
+--- !u!114 &2098372586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8973447479815979697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db5306bad93ba245a4c1572e418fdc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
-{
-    public float pickupRadius = 1.0f;
-    
+{   
     private ItemPickup targetItem = null;
 
     private float startPickupTime = 0.0f;
@@ -148,11 +146,5 @@ public class PlayerInteraction : MonoBehaviour
     private float GetPickingUpTime()
     {
         return Time.time - startPickupTime;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, pickupRadius);
     }
 }
