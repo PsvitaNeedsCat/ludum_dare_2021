@@ -53,25 +53,25 @@ MonoBehaviour:
   - type: 1
     movePoints:
     - targetPoint: {fileID: 5248153432913343386}
-      moveDuration: 1
+      moveDuration: 2
     - targetPoint: {fileID: 5248153432565732807}
-      moveDuration: 1
+      moveDuration: 2
     - targetPoint: {fileID: 5248153432185330438}
-      moveDuration: 1
+      moveDuration: 2
     - targetPoint: {fileID: 5248153433578863877}
-      moveDuration: 1
+      moveDuration: 2
   - type: 1
     movePoints:
     - targetPoint: {fileID: 5248153432290710371}
-      moveDuration: 1
+      moveDuration: 2
     - targetPoint: {fileID: 5248153433765806981}
-      moveDuration: 1
+      moveDuration: 2
     - targetPoint: {fileID: 5248153432185330438}
-      moveDuration: 1
+      moveDuration: 2
     - targetPoint: {fileID: 5248153433599423877}
-      moveDuration: 1
+      moveDuration: 2
     - targetPoint: {fileID: 5248153432453578541}
-      moveDuration: 1
+      moveDuration: 2
   waterBillPatterns:
   - type: 2
     movePoints:
