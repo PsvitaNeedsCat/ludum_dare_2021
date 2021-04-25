@@ -90,7 +90,7 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < numEnemies; i++)
         {
             SpawnEnemy(pattern);
-            yield return new WaitForSeconds(difficulty);
+            yield return new WaitForSeconds(spawnDelay);
         }
 
         difficulty += difficultyIncreasePerWave;

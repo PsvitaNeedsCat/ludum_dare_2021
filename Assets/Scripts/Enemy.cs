@@ -41,8 +41,7 @@ public class Enemy : MonoBehaviour
         for (int i = 1; i < points.Count; i++)
         {
             MovePoint point = points[i];
-            Debug.Log("Moving enemy to: " + point.targetPoint + " over: " + point.moveDuration);
-            seq.Append(rigidBody.DOMove(point.targetPoint, point.moveDuration));
+            seq.Append(rigidBody.DOMove(point.targetPoint, point.moveDuration).SetEase(Ease.Linear));
         }
 
         seq.AppendCallback(() => Destroy(this.gameObject));
@@ -50,8 +49,11 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        HealthBar.Instance.Health -= 1;
-        DOTween.Kill(this);
-        Destroy(this.gameObject);
+        if (collision.GetComponent<PlayerHealth>())
+        {
+            HealthBar.Instance.Health -= 1;
+            DOTween.Kill(this);
+            Destroy(this.gameObject);
+        }
     }
 }
