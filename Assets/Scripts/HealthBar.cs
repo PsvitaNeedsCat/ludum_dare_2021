@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
+    private const float I_FRAME_TIME = 1.0f;
+
     [SerializeField]
     private Image m_healthBarImage = null;
 
@@ -19,9 +21,16 @@ public class HealthBar : MonoBehaviour
         get { return m_health; }
         set
         {
+            if (m_iFrameTimer > 0.0f)
+            {
+                return;
+            }
+
             m_health = Mathf.Clamp(value, 0, m_maxHealth);
             m_amountText.text = m_health.ToString();
             UpdateBar();
+
+            m_iFrameTimer = I_FRAME_TIME;
         }
     }
 
@@ -40,6 +49,7 @@ public class HealthBar : MonoBehaviour
 
     private int m_health = 99;
     private int m_maxHealth = 99;
+    private float m_iFrameTimer = 0.0f;
 
     private static HealthBar s_instance = null;
 
@@ -52,6 +62,14 @@ public class HealthBar : MonoBehaviour
         }
 
         s_instance = this;
+    }
+
+    private void Update()
+    {
+        if (m_iFrameTimer > 0.0f)
+        {
+            m_iFrameTimer -= Time.deltaTime;
+        }
     }
 
     private void UpdateBar()
