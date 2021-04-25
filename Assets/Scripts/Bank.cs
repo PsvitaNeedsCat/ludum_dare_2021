@@ -58,6 +58,7 @@ public class Bank : MonoBehaviour
     private void TakeLoan()
     {
         Loan.Instance.TakeLoan();
+        EnemyManager.difficulty += 0.1f;
 
         m_bankObject.position = m_shuffleBagSpawns[0].position;
 

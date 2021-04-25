@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         for (int i = 1; i < points.Count; i++)
         {
             MovePoint point = points[i];
-            moveSequence.Append(rigidBody.DOMove(point.targetPoint, point.moveDuration).SetEase(Ease.Linear));
+            moveSequence.Append(rigidBody.DOMove(point.targetPoint, point.moveDuration  / EnemyManager.difficulty).SetEase(Ease.Linear));
         }
 
         moveSequence.AppendCallback(() => Destroy(this.gameObject));
