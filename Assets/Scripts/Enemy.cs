@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public List<MovePoint> movePoints;
     public Type type;
     private Rigidbody2D rigidBody;
+    private Sequence moveSequence;
 
     private void Awake()
     {
@@ -36,15 +37,15 @@ public class Enemy : MonoBehaviour
             waterSprite.SetActive(true);
         }
 
-        Sequence seq = DOTween.Sequence();
+        moveSequence = DOTween.Sequence();
 
         for (int i = 1; i < points.Count; i++)
         {
             MovePoint point = points[i];
-            seq.Append(rigidBody.DOMove(point.targetPoint, point.moveDuration).SetEase(Ease.Linear));
+            moveSequence.Append(rigidBody.DOMove(point.targetPoint, point.moveDuration).SetEase(Ease.Linear));
         }
 
-        seq.AppendCallback(() => Destroy(this.gameObject));
+        moveSequence.AppendCallback(() => Destroy(this.gameObject));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,8 +53,12 @@ public class Enemy : MonoBehaviour
         if (collision.GetComponent<PlayerHealth>())
         {
             HealthBar.Instance.Health -= 1;
-            DOTween.Kill(this);
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        moveSequence.Kill();
     }
 }
