@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HealthBar : MonoBehaviour
 {
@@ -56,5 +57,12 @@ public class HealthBar : MonoBehaviour
     private void UpdateBar()
     {
         m_healthBarImage.fillAmount = (float)m_health / (float)m_maxHealth;
+
+        if (m_health == 0)
+        {
+            PlayerPrefs.SetInt("LoanTaken", Loan.Instance.LoanTaken);
+            PlayerPrefs.SetInt("TimeAlive", Mathf.FloorToInt(Timer.Instance.TimeAlive));
+            SceneManager.LoadScene("end_scene");
+        }
     }
 }
