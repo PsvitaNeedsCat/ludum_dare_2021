@@ -26,8 +26,8 @@ public class EnemyManager : MonoBehaviour
     [System.Serializable]
     public class MovementPattern
     {
-        public List<MovePointInspector> movePoints;
         public Enemy.Type type;
+        public List<MovePointInspector> movePoints;
 
         public List<MovePoint> Init(bool flipX, bool flipY)
         {
