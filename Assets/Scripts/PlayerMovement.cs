@@ -6,6 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance { get { return s_instance; } }
 
+    public GameObject sprites;
+    public Animator topAnimator;
+    public Animator bottomAnimator;
+
     [SerializeField]
     private float m_moveForce = 1.0f;
     [SerializeField]
@@ -66,12 +70,23 @@ public class PlayerMovement : MonoBehaviour
         {
             m_dashDirection = m_movementDirection * m_dashForce;
         }
+
+        float animatorSpeed = (m_movementDirection.magnitude < 0.1f) ? 0.0f : 0.2f;
+
+        topAnimator.speed = animatorSpeed;
+        bottomAnimator.speed = animatorSpeed;
+
+        if (m_movementDirection.magnitude > 0.1f)
+        {
+            float angle = Vector2.SignedAngle(Vector2.up, m_movementDirection);
+            sprites.transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
+        }
     }
 
     // Called on FixedUpdate
     private void Move()
     {
-        m_rigidBody.AddForce(m_movementDirection * m_moveForce);
+        m_rigidBody.AddForce(m_movementDirection.normalized * m_moveForce);
         m_movementDirection = Vector2.zero;
 
         m_rigidBody.AddForce(m_dashDirection * m_dashForce, ForceMode2D.Impulse);
