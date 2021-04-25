@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance { get { return s_instance; } }
+
     [SerializeField]
     private float m_moveForce = 1.0f;
     [SerializeField]
@@ -14,8 +16,17 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 m_movementDirection = Vector2.zero;
     private Vector2 m_dashDirection = Vector2.zero;
 
+    private static PlayerMovement s_instance = null;
+
     private void Awake()
     {
+        if (s_instance != null && s_instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        s_instance = this;
+
         m_rigidBody = GetComponent<Rigidbody2D>();
     }
 
