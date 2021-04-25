@@ -45,15 +45,6 @@ public class Loan : MonoBehaviour
         UpdateUI();
     }
 
-    private void Update()
-    {
-        // Temp
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeLoan();
-        }
-    }
-
     public void TakeLoan()
     {
         LoanTaken += m_moneyPerLoan;
