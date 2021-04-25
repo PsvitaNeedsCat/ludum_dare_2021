@@ -46,63 +46,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveStartDelay: 3
   enemiesInWave: 10
-  delayBetweenEnemies: 0.3
+  delayBetweenEnemies: 0.1
   difficultyIncreasePerWave: 0.1
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 1583063104991284154, guid: 3343899637631c944becc3d1850ab70b, type: 3}
   powerBillPatterns:
-  - movePoints:
+  - type: 1
+    movePoints:
     - targetPoint: {fileID: 5248153432913343386}
-      moveDuration: 2
+      moveDuration: 1
     - targetPoint: {fileID: 5248153432565732807}
-      moveDuration: 2
+      moveDuration: 1
     - targetPoint: {fileID: 5248153432185330438}
-      moveDuration: 2
+      moveDuration: 1
     - targetPoint: {fileID: 5248153433578863877}
-      moveDuration: 2
-    type: 0
-  - movePoints:
+      moveDuration: 1
+  - type: 1
+    movePoints:
     - targetPoint: {fileID: 5248153432290710371}
-      moveDuration: 2
+      moveDuration: 1
     - targetPoint: {fileID: 5248153433765806981}
-      moveDuration: 2
+      moveDuration: 1
     - targetPoint: {fileID: 5248153432185330438}
-      moveDuration: 2
+      moveDuration: 1
     - targetPoint: {fileID: 5248153433599423877}
-      moveDuration: 2
+      moveDuration: 1
     - targetPoint: {fileID: 5248153432453578541}
-      moveDuration: 2
-    type: 0
+      moveDuration: 1
   waterBillPatterns:
-  - movePoints:
+  - type: 2
+    movePoints:
     - targetPoint: {fileID: 5248153432695392352}
       moveDuration: 0
     - targetPoint: {fileID: 5248153433727598859}
       moveDuration: 2
-    type: 0
-  - movePoints:
-    - targetPoint: {fileID: 5248153432431575239}
-      moveDuration: 0
-    - targetPoint: {fileID: 5248153433009317071}
-      moveDuration: 2
-    type: 0
-  - movePoints:
-    - targetPoint: {fileID: 5248153433765806981}
-      moveDuration: 0
-    - targetPoint: {fileID: 5248153431821785475}
-      moveDuration: 2
-    type: 0
-  - movePoints:
-    - targetPoint: {fileID: 5248153433112949690}
-      moveDuration: 0
-    - targetPoint: {fileID: 5248153432355643433}
-      moveDuration: 2
-    type: 0
-  - movePoints:
-    - targetPoint: {fileID: 5248153432355561131}
-      moveDuration: 0
-    - targetPoint: {fileID: 5248153433554159906}
-      moveDuration: 2
-    type: 0
 --- !u!1001 &5618398479166964058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,24 +146,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 373130384379595066, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
   m_PrefabInstance: {fileID: 5618398479166964058}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5248153432431575239 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 373130384642359709, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
-  m_PrefabInstance: {fileID: 5618398479166964058}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5248153433765806981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 373130385439851231, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
-  m_PrefabInstance: {fileID: 5618398479166964058}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5248153433112949690 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 373130385827443424, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
-  m_PrefabInstance: {fileID: 5618398479166964058}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5248153432355561131 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 373130384434225137, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
   m_PrefabInstance: {fileID: 5618398479166964058}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5248153432565732807 stripped
@@ -218,26 +179,6 @@ Transform:
 --- !u!4 &5248153433727598859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 373130385409900625, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
-  m_PrefabInstance: {fileID: 5618398479166964058}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5248153433009317071 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 373130386128233877, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
-  m_PrefabInstance: {fileID: 5618398479166964058}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5248153431821785475 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 373130384972159193, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
-  m_PrefabInstance: {fileID: 5618398479166964058}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5248153432355643433 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 373130384434110835, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
-  m_PrefabInstance: {fileID: 5618398479166964058}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5248153433554159906 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 373130385605363832, guid: f86fce471453a7b4fbed2f1fa139c363, type: 3}
   m_PrefabInstance: {fileID: 5618398479166964058}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5248153432185330438 stripped
