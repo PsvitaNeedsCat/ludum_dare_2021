@@ -96,7 +96,7 @@ public class Bank : MonoBehaviour
             spawns.RemoveAt(index);
 
             // Add previous point back into the bag
-            if (i == 0)
+            if (i == 0 && previousPoint != null)
             {
                 spawns.Add(previousPoint);
             }
